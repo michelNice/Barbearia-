@@ -1,5 +1,6 @@
 import { useState } from "react";
 import './Navbar.scss'
+import { FaCalendarAlt, FaTimes, FaBars } from "react-icons/fa";
 import logo from '../../assets/imgs/logo.png'
 
 export function Navbar() {
@@ -33,39 +34,32 @@ export function Navbar() {
             aria-label={isOpen ? "Fechar" : "Abrir menu"}
             aria-expanded={isOpen}
           >
-            {isOpen ? (
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18" />
-                <line x1="6" y1="6" x2="18" y2="18" />
-              </svg>
-            ) : (
-              <svg
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="4" y1="6" x2="20" y2="6" />
-                <line x1="4" y1="12" x2="20" y2="12" />
-                <line x1="4" y1="18" x2="20" y2="18" />
-              </svg>
-            )}
+            {isOpen ? <FaTimes /> : <FaBars />}
           </button>
-
           <a href="/agendamento" className="navbar__booking">
             Agendar horário
           </a>
         </div>
       </nav>
+
+      <div className="hero-text">
+        <span className="hero-subtitle">MAIS QUE UM CORTE,</span>
+        <h1 className="hero-title">
+          É O SEU <span className="highlight">ESTILO.</span>
+        </h1>
+        <p className="hero-description">
+          Cortes, barba, sobrancelha e cuidados completos para você se sentir confiante todos os dias.
+        </p>
+        <div className="hero-actions">
+          <a href="#agendar" className="btn btn-primary">
+            <FaCalendarAlt /> Agendar Horário
+          </a>
+          
+          <a href="#servicos" className="btn btn-secondary">
+            Conheça os Serviços
+          </a>
+        </div>
+      </div>
     </header>
   );
 }

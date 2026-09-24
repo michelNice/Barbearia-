@@ -11,7 +11,13 @@ export function Navbar() {
       <nav className={`navbar ${isOpen ? "navbar--open" : ""}`}>
         <img src={logo} alt="Barb logo" />
 
-        <ul className={isOpen ? "navbar__menu--open" : ""}>
+        <div
+          className={`navbar__overlay ${isOpen ? "navbar__overlay--open" : ""}`}
+          onClick={() => setIsOpen(false)}
+          aria-hidden="true"
+        />
+
+        <ul className={`navbar__menu ${isOpen ? "navbar__menu--open" : ""}`}>
           <li>
             <a href="#" onClick={() => setIsOpen(false)}>Início</a>
           </li>

@@ -13,28 +13,30 @@ export function Navbar() {
 
         <ul className={isOpen ? "navbar__menu--open" : ""}>
           <li>
-            <a href="#">Início</a>
+            <a href="#" onClick={() => setIsOpen(false)}>Início</a>
           </li>
           <li>
-            <a href="#">Serviços</a>
+            <a href="#servicos" onClick={() => setIsOpen(false)}>Serviços</a>
           </li>
           <li>
-            <a href="#">Sobre</a>
+            <a href="#sobre" onClick={() => setIsOpen(false)}>Sobre</a>
           </li>
           <li>
-            <a href="#">Contato</a>
+            <a href="#contato" onClick={() => setIsOpen(false)}>Contato</a>
           </li>
         </ul>
 
         <div className="navbar__actions">
           <button
             type="button"
-            className="navbar__toggle"
+            className={`navbar__toggle ${isOpen ? "navbar__toggle--open" : ""}`}
             onClick={() => setIsOpen((prev) => !prev)}
-            aria-label={isOpen ? "Fechar" : "Abrir menu"}
+            aria-label={isOpen ? "Fechar menu" : "Abrir menu"}
             aria-expanded={isOpen}
           >
-            {isOpen ? <FaTimes /> : <FaBars />}
+            <span className="navbar__toggle-icon">
+              {isOpen ? <FaTimes /> : <FaBars />}
+            </span>
           </button>
           <a href="/agendamento" className="navbar__booking">
             Agendar horário

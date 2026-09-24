@@ -1,33 +1,35 @@
 @use "../../style/BarbColors.scss" as *;
 @use "../../style/Fonts.scss" as *;
 
-// ====================
-// Desktop
-// ====================
-
 * {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
+// Desktop
+
+.hero{
+  background: linear-gradient(rgba(0, 0, 0, 0.271), rgba(0, 0, 0, 0.271)),
+  url("../../assets/imgs/hero.png");
+  height:100vh;
+  width: 100%;
+  max-width: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .navbar {
   width: 100%;
-  background-color: $color-white;
-  border-bottom: 0.0625rem solid $color-border;
-
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  padding: clamp(0.75rem, 2vw, 1.25rem)
-    clamp(1rem, 4vw, 3rem);
-
+  padding: clamp(0.75rem, 2vw, 1.25rem) clamp(1rem, 4vw, 3rem);
   gap: clamp(1rem, 2.5vw, 2rem);
   font-family: $font-text;
 
   img {
-    height: clamp(2.25rem, 4vw, 3rem);
+    height: clamp(3.5rem, 6vw, 5rem);
     width: auto;
     max-width: 100%;
     object-fit: contain;
@@ -49,15 +51,11 @@
 
       a {
         position: relative;
-
-        color: $color-text;
+        color: $color-white;
         text-decoration: none;
-
         font-size: clamp(0.875rem, 1.2vw, 1rem);
         font-weight: 500;
-
         padding-bottom: 0.25rem;
-
         transition: color 0.2s ease;
 
         &:hover {
@@ -67,22 +65,28 @@
     }
   }
 
+  &__actions {
+    display: flex;
+    align-items: center;
+    gap: clamp(0.5rem, 1.5vw, 1rem);
+  }
+
+  &__toggle {
+    display: none;
+    background: #fff;
+    color: #fff;
+  }
+
   &__booking {
     display: inline-flex;
     align-items: center;
     justify-content: center;
-
-    background-color: $color-primary;
-    color: $color-white;
-
+    background:$color-background;
+    color:$color-primary;
     text-decoration: none;
     font-weight: 600;
-
     font-size: clamp(0.8125rem, 1.1vw, 0.9375rem);
-
-    padding: clamp(0.5rem, 1.2vw, 0.75rem)
-      clamp(0.875rem, 2vw, 1.5rem);
-
+    padding: clamp(0.5rem, 1.2vw, 0.75rem) clamp(0.875rem, 2vw, 1.5rem);
     border-radius: 0.375rem;
     white-space: nowrap;
     transition: background-color 0.2s ease;
@@ -93,64 +97,97 @@
   }
 }
 
-// ====================
 // Mobile
-// ====================
 
 @media (max-width: 48rem) {
+  .hero{
+    background-position: 60% center;
+  }
   .navbar {
     flex-wrap: wrap;
+    align-items: center;
     justify-content: space-between;
-
-    padding: 0.75rem
-      clamp(0.75rem, 3vw, 1.25rem);
-
+    padding: 0.75rem clamp(0.75rem, 3vw, 1.25rem);
     gap: 0.75rem 0.5rem;
 
     img {
-      height: clamp(1.875rem, 5vw, 2.25rem);
+      order: 1;
+      font-size: clamp(0.875rem, 1.2vw, 1rem);
     }
 
-    ul {
-      width: 100%;
-      justify-content: space-around;
+    &__actions {
+      order: 2;
+      display: flex;
+      align-items: center;
+      gap: clamp(0.375rem, 1.5vw, 0.75rem);
+      margin-left: auto;
+    }
 
-      gap: 0.5rem;
+    &__toggle {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0.25rem;
+      line-height: 1;
 
-      padding-top: 0.625rem;
+      svg {
+        width: 1.5rem;
+        height: 1.5rem;
+      }
 
-      border-top: 0.0625rem solid $color-border;
-
-      flex-wrap: wrap;
-
-      li {
-        a {
-          font-size: 0.8125rem;
-          padding: 0.25rem 0.375rem;
-        }
+      &:hover {
+        color: $color-secondary;
       }
     }
 
     &__booking {
-      padding: 0.4375rem 0.875rem;
-      font-size: 0.8125rem;
+      padding: 0.4375rem clamp(0.625rem, 2vw, 0.875rem);
+      font-size: clamp(0.75rem, 2.5vw, 0.8125rem);
+    }
+
+    ul {
+      order: 3;
+      display: none;
+      width: 100%;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding-top: 0.5rem;
+      border-top: 0.0625rem solid $color-border;
+
+      &.navbar__menu--open {
+        display: flex;
+      }
+
+      li {
+        width: 100%;
+
+        a {
+          display: block;
+          width: 100%;
+          font-size: 0.875rem;
+          padding: 0.625rem 0.25rem;
+
+          &:hover {
+            color: $color-primary;
+          }
+        }
+      }
     }
   }
 }
 
-// ====================
-// Small Mobile
-// ====================
-
 @media (max-width: 22.5rem) {
   .navbar {
-    ul {
-      justify-content: center;
-      gap: 0.375rem 0.75rem;
+    &__actions {
+      gap: 0.375rem;
     }
 
     &__booking {
-      padding: 0.375rem 0.625rem;
+      padding: 0.375rem 0.5rem;
       font-size: 0.75rem;
     }
   }

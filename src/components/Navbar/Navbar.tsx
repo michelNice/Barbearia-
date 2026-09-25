@@ -2,10 +2,8 @@ import { useState } from "react";
 import './Navbar.scss'
 import { FaCalendarAlt, FaTimes, FaBars } from "react-icons/fa";
 import logo from '../../assets/imgs/logo.png'
-
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-
   return (
     <header className="hero">
       <nav className={`navbar ${isOpen ? "navbar--open" : ""}`}>
@@ -16,19 +14,45 @@ export function Navbar() {
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
+        <div className={`navbar__drawer ${isOpen ? "navbar__drawer--open" : ""}`}>
+          <div className="navbar__drawer-header">
+            <img src={logo} alt="Barb logo" />
+          </div>
+          <ul className="navbar__drawer-menu">
+            <li>
+              <a href="#" onClick={() => setIsOpen(false)}>Início</a>
+            </li>
+            <li>
+              <a href="#servicos" onClick={() => setIsOpen(false)}>Serviços</a>
+            </li>
+            <li>
+              <a href="#sobre" onClick={() => setIsOpen(false)}>Sobre</a>
+            </li>
+            <li>
+              <a href="#contato" onClick={() => setIsOpen(false)}>Contato</a>
+            </li>
+          </ul>
+          <a
+            href="/agendamento"
+            className="navbar__drawer-booking"
+            onClick={() => setIsOpen(false)}
+          >
+            Agendar Horário
+          </a>
+        </div>
 
-        <ul className={`navbar__menu ${isOpen ? "navbar__menu--open" : ""}`}>
+        <ul className="navbar__links">
           <li>
-            <a href="#" onClick={() => setIsOpen(false)}>Início</a>
+            <a href="#">Início</a>
           </li>
           <li>
-            <a href="#servicos" onClick={() => setIsOpen(false)}>Serviços</a>
+            <a href="#servicos">Serviços</a>
           </li>
           <li>
-            <a href="#sobre" onClick={() => setIsOpen(false)}>Sobre</a>
+            <a href="#sobre">Sobre</a>
           </li>
           <li>
-            <a href="#contato" onClick={() => setIsOpen(false)}>Contato</a>
+            <a href="#contato">Contato</a>
           </li>
         </ul>
 

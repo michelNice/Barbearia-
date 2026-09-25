@@ -1,7 +1,6 @@
 // Import das cores e das fontes do projeto
 @import '../../style/BarbColors.scss';
 @import '../../style/Fonts.scss';
-
 .servicos-container {
   width: 100%;
   max-width: 1280px;
@@ -148,9 +147,6 @@
     }
   }
 }
-
-/* --- RESPONSIVIDADE & OCULTAÇÃO DAS SETAS --- */
-
 @media (max-width: 768px) {
   .servicos-container {
     padding: 40px 16px;
@@ -160,7 +156,6 @@
         font-size: 2rem;
       }
     }
-
     .servicos-swiper {
       /* Esconde as setas de navegação no mobile e tablet */
       .swiper-button-next,

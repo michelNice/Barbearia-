@@ -10,6 +10,31 @@ function Agendamento() {
   const [telefone, setTelefone] = useState('');
   const [erro, setErro] = useState('');
 
+  const numeroWhatsApp = '558196887301';
+
+  // Máscara contendo APENAS parênteses (ex: (81) 996599595)
+  const handleTelefoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const input = e.target.value;
+
+    if (!input) {
+      setTelefone('');
+      return;
+    }
+
+    let digits = input.replace(/\D/g, '');
+
+    if (digits.length > 11) digits = digits.slice(0, 11);
+
+    let formatted = digits;
+    if (digits.length > 2) {
+      formatted = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
+    } else if (digits.length > 0) {
+      formatted = `(${digits}`;
+    }
+
+    setTelefone(formatted);
+  };
+
   // Validação de Data (Apenas Terça a Sábado)
   const handleDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const dataSelecionada = e.target.value;
@@ -57,7 +82,6 @@ function Agendamento() {
 
     const mensagem = `Olá! Gostaria de agendar um horário:\n\n- *Serviço:* ${servico}\n- *Data:* ${dataFormatada}\n- *Horário:* ${horario}\n- *Cliente:* ${nome}\n- *Contato:* ${telefone}`;
 
-    const numeroWhatsApp = '5581999999999'; // Substitua pelo seu número
     window.open(`https://wa.me/${numeroWhatsApp}?text=${encodeURIComponent(mensagem)}`, '_blank');
   };
 
@@ -128,9 +152,9 @@ function Agendamento() {
                 <label>Seu WhatsApp</label>
                 <input 
                   type="tel" 
-                  placeholder="(81) 99999-9999" 
+                  placeholder="(81) 996599595" 
                   value={telefone} 
-                  onChange={(e) => setTelefone(e.target.value)} 
+                  onChange={handleTelefoneChange} 
                   required 
                 />
               </div>

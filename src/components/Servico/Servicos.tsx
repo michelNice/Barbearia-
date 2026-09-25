@@ -1,15 +1,10 @@
 import './Servicos.scss';
 import { FaCut } from 'react-icons/fa'; 
-// Importação do Swiper e seus módulos
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
-
-// Estilos obrigatórios do Swiper
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
-
-// Suas imagens importadas
 import img from '../../assets/imgs/img.jpg';
 import img1 from '../../assets/imgs/img1.jpg';
 import img2 from '../../assets/imgs/img2.png';
@@ -114,5 +109,4 @@ function Servicos() {
     </section>
   );
 }
-
 export default Servicos;

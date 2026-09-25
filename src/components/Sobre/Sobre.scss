@@ -1,0 +1,154 @@
+@import '../../style/BarbColors.scss';
+@import '../../style/Fonts.scss';
+
+.sobre-container {
+  width: 100%;
+  background-color: #ffffff; // Fundo totalmente branco
+  padding: 80px 20px;
+  box-sizing: border-box;
+  font-family: $font-text;
+  color: #1a1a1a;
+
+  .sobre-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+
+    /* Lado Esquerdo: Imagem */
+    .sobre-imagem {
+      flex: 1;
+      max-width: 480px;
+
+      img {
+        width: 100%;
+        height: 380px;
+        object-fit: cover;
+        border-radius: 12px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+        display: block;
+      }
+    }
+
+    /* Lado Direito: Textos */
+    .sobre-texto {
+      flex: 1.1;
+      display: flex;
+      flex-direction: column;
+
+      .titulo-box {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 20px;
+
+        .icon-destaque {
+          color: #c89d5c; // Mantém a cor dourada de destaque
+          font-size: 1.6rem;
+        }
+
+        h2 {
+          font-family: $font-title;
+          font-size: 1.8rem;
+          font-weight: 700;
+          color: #111111;
+          letter-spacing: 1.2px;
+          text-transform: uppercase;
+          margin: 0;
+        }
+      }
+
+      p.destaque {
+        font-size: 1.1rem;
+        color: #333333;
+        line-height: 1.6;
+        margin: 0 0 16px 0;
+        font-weight: 600;
+      }
+
+      p.descricao {
+        font-size: 0.95rem;
+        color: #666666;
+        line-height: 1.7;
+        margin: 0 0 28px 0;
+      }
+
+      .missao-dourada {
+        font-family: $font-title;
+        font-size: 1.3rem;
+        font-weight: 700;
+        color: #c89d5c;
+        letter-spacing: 0.5px;
+      }
+    }
+  }
+}
+
+/* =========================
+   RESPONSIVIDADE (MOBILE / TABLET)
+========================= */
+
+@media (max-width: 880px) {
+  .sobre-container {
+    padding: 50px 20px;
+
+    .sobre-content {
+      flex-direction: column;
+      gap: 36px;
+      text-align: center;
+
+      .sobre-imagem {
+        max-width: 100%;
+        width: 100%;
+
+        img {
+          height: 300px;
+        }
+      }
+
+      .sobre-texto {
+        align-items: center;
+
+        .titulo-box {
+          justify-content: center;
+
+          h2 {
+            font-size: 1.5rem;
+          }
+        }
+
+        p.destaque {
+          font-size: 1rem;
+        }
+
+        p.descricao {
+          font-size: 0.9rem;
+        }
+
+        .missao-dourada {
+          font-size: 1.15rem;
+        }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .sobre-container {
+    padding: 40px 16px;
+
+    .sobre-content {
+      .sobre-imagem img {
+        height: 250px;
+      }
+
+      .sobre-texto {
+        .titulo-box h2 {
+          font-size: 1.3rem;
+        }
+      }
+    }
+  }
+}

@@ -1,10 +1,24 @@
+import React from 'react';
 import './Servicos.scss';
+
 import { FaCut } from 'react-icons/fa'; 
-import img from '../../assets/imgs/img.jpg'
-import img1 from '../../assets/imgs/img1.jpg'
-import img2 from '../../assets/imgs/img2.png'
-import img3 from '../../assets/imgs/img3.png'
-import img4 from '../../assets/imgs/img4.png'
+
+// Importação do Swiper e seus módulos
+import { Swiper, SwiperSlide } from 'swiper/react';
+import { Navigation, Pagination, Autoplay } from 'swiper/modules';
+
+// Estilos obrigatórios do Swiper
+import 'swiper/css';
+import 'swiper/css/navigation';
+import 'swiper/css/pagination';
+
+// Suas imagens importadas
+import img from '../../assets/imgs/img.jpg';
+import img1 from '../../assets/imgs/img1.jpg';
+import img2 from '../../assets/imgs/img2.png';
+import img3 from '../../assets/imgs/img3.png';
+import img4 from '../../assets/imgs/img4.png';
+
 interface Servico {
   id: number;
   nome: string;
@@ -34,21 +48,21 @@ function Servicos() {
       nome: "Sobrancelha",
       preco: "A partir de R$ 20",
       descricao: "Design para um olhar mais marcante.",
-      imagem:img1,
+      imagem: img1
     },
     {
       id: 4,
       nome: "Pigmentação",
       preco: "A partir de R$ 60",
       descricao: "Mais definição e aparência de barba cheia.",
-      imagem:img3,
+      imagem: img3
     },
     {
       id: 5,
       nome: "Tratamentos",
       preco: "A partir de R$ 50",
       descricao: "Hidratação e cuidados para o seu cabelo e barba.",
-      imagem:img4,
+      imagem: img4
     },
   ];
 
@@ -64,19 +78,43 @@ function Servicos() {
         </p>
       </header>
 
-      <div className="servicos-grid">
+      <Swiper
+        modules={[Navigation, Pagination, Autoplay]}
+        spaceBetween={16}
+        slidesPerView={1.2}
+        pagination={{ clickable: true }}
+        navigation={true}
+        autoplay={{ delay: 3500, disableOnInteraction: false }}
+        breakpoints={{
+          480: {
+            slidesPerView: 2,
+            spaceBetween: 16,
+          },
+          768: {
+            slidesPerView: 3,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 5,
+            spaceBetween: 20,
+          },
+        }}
+        className="servicos-swiper"
+      >
         {servicos.map((servico) => (
-          <div key={servico.id} className="servico-card">
-            <div className="card-image-wrapper">
-              <img src={servico.imagem} alt={servico.nome} />
+          <SwiperSlide key={servico.id}>
+            <div className="servico-card">
+              <div className="card-image-wrapper">
+                <img src={servico.imagem} alt={servico.nome} />
+              </div>
+              <div className="card-content">
+                <h3>{servico.nome}</h3>
+                <span className="preco">{servico.preco}</span>
+              </div>
             </div>
-            <div className="card-content">
-              <h3>{servico.nome}</h3>
-              <span className="preco">{servico.preco}</span>
-            </div>
-          </div>
+          </SwiperSlide>
         ))}
-      </div>
+      </Swiper>
     </section>
   );
 }

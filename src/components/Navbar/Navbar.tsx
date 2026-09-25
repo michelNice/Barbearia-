@@ -1,18 +1,43 @@
-import { useState } from "react";
-import './Navbar.scss'
+import { useState, useEffect } from "react";
+import './Navbar.scss';
 import { FaCalendarAlt, FaTimes, FaBars } from "react-icons/fa";
-import logo from '../../assets/imgs/logo.png'
+import logo from '../../assets/imgs/logo.png';
+
 export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      // Ativa o estado sticky após rolar 50px para baixo
+      if (window.scrollY > 50) {
+        setIsScrolled(true);
+      } else {
+        setIsScrolled(false);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+
+    // Limpa o evento ao desmontar o componente
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+    };
+  }, []);
+
   return (
     <header className="hero">
-      <nav className={`navbar ${isOpen ? "navbar--open" : ""}`}>
-        <img src={logo} alt="Barb logo" />
+      <nav 
+        className={`navbar ${isScrolled ? "navbar--scrolled" : ""} ${isOpen ? "navbar--open" : ""}`}
+      >
+        <img src={logo} alt="Barb logo" className="navbar__logo" />
+
         <div
           className={`navbar__overlay ${isOpen ? "navbar__overlay--open" : ""}`}
           onClick={() => setIsOpen(false)}
           aria-hidden="true"
         />
+
         <div className={`navbar__drawer ${isOpen ? "navbar__drawer--open" : ""}`}>
           <div className="navbar__drawer-header">
             <img src={logo} alt="Barb logo" />

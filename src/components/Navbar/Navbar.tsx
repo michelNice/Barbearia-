@@ -8,7 +8,6 @@ export function Navbar() {
     <header className="hero">
       <nav className={`navbar ${isOpen ? "navbar--open" : ""}`}>
         <img src={logo} alt="Barb logo" />
-
         <div
           className={`navbar__overlay ${isOpen ? "navbar__overlay--open" : ""}`}
           onClick={() => setIsOpen(false)}

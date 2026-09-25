@@ -1,0 +1,152 @@
+
+// Import das cores e das fontes do projeto
+@import '../../style/BarbColors.scss';
+@import '../../style/Fonts.scss';
+
+.servicos-container {
+  width: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  box-sizing: border-box;
+  font-family: $font-text; // Define Montserrat como fonte padrão do bloco
+
+  .servicos-header {
+    margin-bottom: 32px;
+    text-align: left;
+
+    .subtitle {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #c89d5c;
+      font-size: 0.85rem;
+      font-weight: 700;
+      letter-spacing: 1.5px;
+      text-transform: uppercase;
+      font-family: $font-text;
+
+      .icon {
+        font-size: 0.9rem;
+      }
+    }
+
+    h2 {
+      font-family: $font-title; // Aplica a Cormorant Garamond
+      font-size: 2.5rem;
+      font-weight: 700;
+      color: #111111;
+      margin: 8px 0;
+      letter-spacing: -0.5px;
+      text-transform: uppercase;
+    }
+
+    p {
+      font-family: $font-text;
+      color: #666666;
+      font-size: 0.95rem;
+      line-height: 1.5;
+      max-width: 480px;
+      margin: 0;
+    }
+  }
+
+  .servicos-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+
+    .servico-card {
+      background-color: #ffffff;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.04);
+      border: 1px solid #f0f0f0;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+      }
+
+      .card-image-wrapper {
+        width: 100%;
+        height: 160px;
+        overflow: hidden;
+
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          display: block;
+          transition: transform 0.3s ease;
+        }
+
+        &:hover img {
+          transform: scale(1.04);
+        }
+      }
+
+      .card-content {
+        padding: 14px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+
+        h3 {
+          font-family: $font-text;
+          font-size: 1rem;
+          font-weight: 700;
+          color: #111111;
+          margin: 0;
+        }
+
+        .preco {
+          font-family: $font-text;
+          font-size: 0.825rem;
+          color: #777777;
+          font-weight: 500;
+        }
+      }
+    }
+  }
+}
+
+/* --- MEDIA QUERIES PARA RESPONSIVIDADE --- */
+
+@media (max-width: 1024px) {
+  .servicos-container .servicos-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 768px) {
+  .servicos-container {
+    padding: 40px 16px;
+
+    .servicos-header {
+      h2 {
+        font-size: 2rem;
+      }
+    }
+
+    .servicos-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .servicos-container {
+    .servicos-grid {
+      grid-template-columns: 1fr;
+      
+      .servico-card .card-image-wrapper {
+        height: 200px;
+      }
+    }
+  }
+}

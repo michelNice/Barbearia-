@@ -1,4 +1,4 @@
- //import Agendamento from "./components/Agendamento/Agendamento"
+ import Agendamento from "./components/Agendamento/Agendamento"
 import { Navbar } from "./components/Navbar/Navbar"
 import Servicos from "./components/Servico/Servicos"
  
@@ -8,6 +8,7 @@ function App() {
     <>
       <Navbar />
       <Servicos />
+      <Agendamento />
     </>
   )
 }

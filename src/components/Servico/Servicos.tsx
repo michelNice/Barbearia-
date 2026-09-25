@@ -1,8 +1,5 @@
-import React from 'react';
 import './Servicos.scss';
-
 import { FaCut } from 'react-icons/fa'; 
-
 // Importação do Swiper e seus módulos
 import { Swiper, SwiperSlide } from 'swiper/react';
 import { Navigation, Pagination, Autoplay } from 'swiper/modules';
@@ -18,7 +15,6 @@ import img1 from '../../assets/imgs/img1.jpg';
 import img2 from '../../assets/imgs/img2.png';
 import img3 from '../../assets/imgs/img3.png';
 import img4 from '../../assets/imgs/img4.png';
-
 interface Servico {
   id: number;
   nome: string;

@@ -3,7 +3,7 @@ import { GiRazor } from 'react-icons/gi';
 import owner from '../../assets/imgs/SaveClip.App_620409356_18559715248055363_7642366684023286410_n.jpg';
 function Sobre() {
   return (
-    <section className="sobre-container">
+    <section className="sobre-container" id='sobre'>
       <div className="sobre-content">
         <div className="sobre-imagem">
           <img src={owner} alt="Rodolfo Neves Barbearia" />

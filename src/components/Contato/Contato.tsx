@@ -42,7 +42,7 @@ function Contato() {
   };
 
   return (
-    <footer className="contato-container">
+    <footer className="contato-container" id='contato'>
       <div className="contato-content">
         
         {/* Informações de Contato (Esquerda) */}

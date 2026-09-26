@@ -58,7 +58,7 @@ function Servicos() {
   ];
 
   return (
-    <section className="servicos-container">
+    <section className="servicos-container" id="servicos">
       <header className="servicos-header">
         <span className="subtitle">
           <FaCut className="icon" /> NOSSOS SERVIÇOS

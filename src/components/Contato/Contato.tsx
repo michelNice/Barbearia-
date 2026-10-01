@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import './Contato.scss';
 import { FaPhoneAlt, FaMapMarkerAlt, FaInstagram, FaWhatsapp, FaFacebookF } from 'react-icons/fa';
-import logo from '../../assets/imgs/logo.png'; // Ajuste o caminho da sua logo
-
+import logo from '../../assets/imgs/logo.png'; 
 function Contato() {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');

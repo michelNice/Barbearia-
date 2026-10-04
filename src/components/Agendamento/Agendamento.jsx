@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import './Agendamento.scss';
 import { FaUserCheck, FaHome, FaUsers, FaWhatsapp, FaClock } from 'react-icons/fa';
 
@@ -13,7 +13,7 @@ function Agendamento() {
   const numeroWhatsApp = '558196887301';
 
   // Máscara contendo APENAS parênteses (ex: (81) 996599595)
-  const handleTelefoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTelefoneChange = (e) => {
     const input = e.target.value;
 
     if (!input) {
@@ -36,7 +36,7 @@ function Agendamento() {
   };
 
   // Validação de Data (Apenas Terça a Sábado)
-  const handleDataChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDataChange = (e) => {
     const dataSelecionada = e.target.value;
     if (!dataSelecionada) return;
 
@@ -53,8 +53,7 @@ function Agendamento() {
     }
   };
 
-  // Validação de Horário (Apenas 09:00 às 18:00)
-  const handleHorarioChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handleHorarioChange = (e) => {
     const horaSelecionada = e.target.value;
     if (!horaSelecionada) return;
 
@@ -69,7 +68,7 @@ function Agendamento() {
     }
   };
 
-  const handleAgendar = (e: React.FormEvent) => {
+  const handleAgendar = (e) => {
     e.preventDefault();
 
     if (!data || !horario) {

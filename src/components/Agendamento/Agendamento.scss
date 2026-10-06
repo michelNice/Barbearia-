@@ -55,12 +55,10 @@
         border-radius: 20px;
         margin-bottom: 24px;
       }
-
       .agendamento-form {
         display: flex;
         flex-direction: column;
         gap: 16px;
-
         .mensagem-erro {
           background-color: rgba(220, 53, 69, 0.15);
           color: #ff6b6b;
@@ -71,7 +69,6 @@
           text-align: center;
           font-weight: 600;
         }
-
         .form-row {
           display: flex;
           gap: 16px;
@@ -82,7 +79,6 @@
           flex-direction: column;
           gap: 6px;
           flex: 1;
-
           label {
             font-size: 0.825rem;
             font-weight: 600;
@@ -131,12 +127,10 @@
           transition: all 0.25s ease;
           margin-top: 8px;
           box-shadow: 0 4px 12px rgba(200, 157, 92, 0.2);
-
           .icon-whatsapp {
             font-size: 1.2rem;
             color: #25d366; // Apenas o ícone mantém a cor do WhatsApp
           }
-
           &:hover {
             background: linear-gradient(135deg, #d4a867 0%, #b3853f 100%);
             transform: translateY(-2px);
@@ -162,7 +156,6 @@
         align-items: center;
         text-align: center;
         gap: 12px;
-
         .icon-wrapper {
           width: 56px;
           height: 56px;
@@ -191,7 +184,6 @@
     }
   }
 }
-
 /* =========================
    RESPONSIVIDADE (MOBILE / TABLET)
 ========================= */

@@ -9,29 +9,22 @@ function Agendamento() {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
   const [erro, setErro] = useState('');
-
   const numeroWhatsApp = '558196887301';
-
   // Máscara contendo APENAS parênteses (ex: (81) 996599595)
   const handleTelefoneChange = (e) => {
     const input = e.target.value;
-
     if (!input) {
       setTelefone('');
       return;
     }
-
     let digits = input.replace(/\D/g, '');
-
     if (digits.length > 11) digits = digits.slice(0, 11);
-
     let formatted = digits;
     if (digits.length > 2) {
       formatted = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;
     } else if (digits.length > 0) {
       formatted = `(${digits}`;
     }
-
     setTelefone(formatted);
   };
 
@@ -39,7 +32,6 @@ function Agendamento() {
   const handleDataChange = (e) => {
     const dataSelecionada = e.target.value;
     if (!dataSelecionada) return;
-
     const [ano, mes, dia] = dataSelecionada.split('-').map(Number);
     const dateObj = new Date(ano, mes - 1, dia);
     const diaDaSemana = dateObj.getDay(); // 0: Domingo, 1: Segunda, ..., 6: Sábado
@@ -52,13 +44,10 @@ function Agendamento() {
       setData(dataSelecionada);
     }
   };
-
   const handleHorarioChange = (e) => {
     const horaSelecionada = e.target.value;
     if (!horaSelecionada) return;
-
     const [horas] = horaSelecionada.split(':').map(Number);
-
     if (horas < 9 || horas >= 18) {
       setErro('Horário de atendimento: 09:00 às 18:00.');
       setHorario('');
@@ -67,7 +56,6 @@ function Agendamento() {
       setHorario(horaSelecionada);
     }
   };
-
   const handleAgendar = (e) => {
     e.preventDefault();
 
@@ -164,7 +152,6 @@ function Agendamento() {
             </button>
           </form>
         </div>
-
         {/* Ícones com Diferenciais (Direita) */}
         <div className="diferenciais-grid">
           <div className="diferencial-item">
@@ -188,7 +175,6 @@ function Agendamento() {
             <span>Profissionais experientes</span>
           </div>
         </div>
-
       </div>
     </section>
   );

@@ -6,24 +6,18 @@ function Contato() {
   const [nome, setNome] = useState('');
   const [telefone, setTelefone] = useState('');
   const [mensagem, setMensagem] = useState('');
-
   // Número real do WhatsApp
   const numeroWhatsApp = '558196887301';
   const urlInstagram = 'https://www.instagram.com/barbeariarodolfoneves/';
-
   // Máscara aplicando APENAS os parênteses para evitar travamentos ao apagar
   const handleTelefoneChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const input = e.target.value;
-
     if (!input) {
       setTelefone('');
       return;
     }
-
     let digits = input.replace(/\D/g, '');
-
     if (digits.length > 11) digits = digits.slice(0, 11);
-
     let formatted = digits;
     if (digits.length > 2) {
       formatted = `(${digits.slice(0, 2)}) ${digits.slice(2)}`;

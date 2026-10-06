@@ -6,7 +6,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-
 // Keyframes para animação de aparição do menu sticky
 @keyframes slideDown {
   from {
@@ -16,7 +15,6 @@
     transform: translateY(0);
   }
 }
-
 // Desktop
 .hero {
   background: linear-gradient(rgba(0, 0, 0, 0.45), rgba(0, 0, 0, 0.65)),
